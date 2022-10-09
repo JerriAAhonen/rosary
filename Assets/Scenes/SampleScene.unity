@@ -4723,6 +4723,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1402562660}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1414443700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 995215540793511388, guid: bb1a48d7c5f6e364287cb69ab3a0bea6,
+    type: 3}
+  m_PrefabInstance: {fileID: 995215539917602664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1414443704
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414443700}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &1440141932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6448,10 +6477,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 995215540793511391, guid: bb1a48d7c5f6e364287cb69ab3a0bea6,
+        type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 995215540793511388, guid: bb1a48d7c5f6e364287cb69ab3a0bea6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1414443704}
   m_SourcePrefab: {fileID: 100100000, guid: bb1a48d7c5f6e364287cb69ab3a0bea6, type: 3}
 --- !u!1001 &6026030433670189155
 PrefabInstance:
@@ -6540,6 +6578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659665496955516286, guid: c5a743eb5ab6b6a4dbe8a8a8524c79ac,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

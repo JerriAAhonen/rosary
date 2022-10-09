@@ -16,4 +16,13 @@ public class Enemy : MonoBehaviour
 		var playerPos = WorldManager.I.Player.transform.position;
 		agent.destination = playerPos;
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		var player = other.gameObject.GetComponent<Player>();
+		if (player)
+		{
+			player.Kill();
+		}
+	}
 }

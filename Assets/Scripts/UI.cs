@@ -9,6 +9,8 @@ public class UI : Singleton<UI>
 	[SerializeField] private GameObject meta;
 	
 	[SerializeField] private TextMeshProUGUI scoreLabel;
+	[SerializeField] private TextMeshProUGUI timer;
+	[SerializeField] private TextMeshProUGUI highScoreLabel;
 
 	private void Start()
 	{
@@ -16,6 +18,9 @@ public class UI : Singleton<UI>
 		meta.SetActive(true);
 
 		WorldManager.I.GameOver += OnGameOver;
+
+		var highscore = PlayerPrefs.HasKey(Net.HighScoreKey) ? PlayerPrefs.GetInt(Net.HighScoreKey) : 0;
+		highScoreLabel.text = $"Highscore: {highscore}";
 	}
 
 	public void OnStart()
@@ -27,6 +32,11 @@ public class UI : Singleton<UI>
 		
 		// Start game
 		WorldManager.I.OnStart();
+	}
+
+	private void Update()
+	{
+		timer.text = TimeManager.I.TimeUntilChange.ToString();
 	}
 
 	private void OnGameOver()

@@ -1021,6 +1021,7 @@ MonoBehaviour:
   dayVolume: {fileID: 832575518}
   nightVolume: {fileID: 1992725756}
   day: 0
+  turnDuration: 10
 --- !u!1001 &428572964
 PrefabInstance:
   m_ObjectHideFlags: 0

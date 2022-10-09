@@ -23,6 +23,11 @@ public class WorldManager : Singleton<WorldManager>
 		Cursor.lockState = CursorLockMode.Confined;
 	}
 
+	private void Update()
+	{
+		hunt = !TimeManager.I.Day;
+	}
+
 	public void OnStart()
 	{
 		StartGame?.Invoke();

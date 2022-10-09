@@ -14,6 +14,8 @@ public class UI : Singleton<UI>
 	{
 		core.SetActive(false);
 		meta.SetActive(true);
+
+		WorldManager.I.GameOver += OnGameOver;
 	}
 
 	public void OnStart()
@@ -25,6 +27,12 @@ public class UI : Singleton<UI>
 		
 		// Start game
 		WorldManager.I.OnStart();
+	}
+
+	private void OnGameOver()
+	{
+		core.SetActive(false);
+		meta.SetActive(true);
 	}
 
 	public void SetScore(int score)

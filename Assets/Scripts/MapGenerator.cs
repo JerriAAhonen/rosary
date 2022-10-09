@@ -9,7 +9,8 @@ public class MapGenerator : Singleton<MapGenerator>
 	[SerializeField] private List<GameObject> roomPrefabs;
 	[SerializeField] private List<Vector3> roomPositions;
 	[SerializeField] private List<Vector3> rotations;
-	[SerializeField] private List<GameObject> rooms;
+	
+	private readonly List<GameObject> rooms = new();
 
 	public event Action MapGenerated;
 

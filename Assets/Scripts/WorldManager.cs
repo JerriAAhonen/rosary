@@ -43,5 +43,7 @@ public class WorldManager : Singleton<WorldManager>
 		Cursor.lockState = CursorLockMode.Confined;
 
 		GameOn = false;
+
+		player.transform.position = Vector3.zero;
 	}
 }

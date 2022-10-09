@@ -980,7 +980,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0376e0bdc29648afa05a7d7119ef036a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefabs: []
+  roomPrefabs:
+  - {fileID: 1186706116254692839, guid: 3b1e973fc951b684aa9e1aa3a8a7e8eb, type: 3}
+  - {fileID: 6518586802145188510, guid: 23be6928071700940a86cd847f535631, type: 3}
+  - {fileID: 265680872671953287, guid: 86122de4da8eece4fbd80a91b4d1c060, type: 3}
+  - {fileID: 5599075241123207167, guid: 6e939b110ed40b24dacea1eb243aa870, type: 3}
+  - {fileID: 2421603646374273112, guid: b2e9a24aebbeac44994426bfc0134b5b, type: 3}
+  - {fileID: 4720657041191630102, guid: 526b7dec1eeb47c4c97eaf986678d80c, type: 3}
+  - {fileID: 727505809704831042, guid: 66e40f00ec1dbcb46b61da94de74e59d, type: 3}
+  - {fileID: 4209339524591900391, guid: 60763b9a3ad01354c9a5d350542243e5, type: 3}
   roomPositions:
   - {x: 14, y: 0, z: 14}
   - {x: 14, y: 0, z: -14}
@@ -995,15 +1003,6 @@ MonoBehaviour:
   - {x: 0, y: 90, z: 0}
   - {x: 0, y: 180, z: 0}
   - {x: 0, y: 270, z: 0}
-  rooms:
-  - {fileID: 1186706116254692839, guid: 3b1e973fc951b684aa9e1aa3a8a7e8eb, type: 3}
-  - {fileID: 6518586802145188510, guid: 23be6928071700940a86cd847f535631, type: 3}
-  - {fileID: 265680872671953287, guid: 86122de4da8eece4fbd80a91b4d1c060, type: 3}
-  - {fileID: 5599075241123207167, guid: 6e939b110ed40b24dacea1eb243aa870, type: 3}
-  - {fileID: 2421603646374273112, guid: b2e9a24aebbeac44994426bfc0134b5b, type: 3}
-  - {fileID: 4720657041191630102, guid: 526b7dec1eeb47c4c97eaf986678d80c, type: 3}
-  - {fileID: 727505809704831042, guid: 66e40f00ec1dbcb46b61da94de74e59d, type: 3}
-  - {fileID: 4209339524591900391, guid: 60763b9a3ad01354c9a5d350542243e5, type: 3}
 --- !u!114 &416100072
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,10 @@ public class TimeManager : Singleton<TimeManager>
 {
 	[SerializeField] private Light directionalLight;
 	[SerializeField] private float lightIntensity_DAY;
+	[SerializeField] private Color lightColor_DAY;
+	
 	[SerializeField] private float lightIntensity_NIGHT;
+	[SerializeField] private Color lightColor_NIGHT;
 	
 	[SerializeField] private Volume dayVolume;
 	[SerializeField] private Volume nightVolume;
@@ -41,12 +44,16 @@ public class TimeManager : Singleton<TimeManager>
 			directionalLight.intensity = lightIntensity_DAY;
 			dayVolume.weight = 1;
 			nightVolume.weight = 0;
+			RenderSettings.ambientMode = AmbientMode.Flat;
+			RenderSettings.ambientSkyColor = lightColor_DAY;
 		}
 		else
 		{
 			directionalLight.intensity = lightIntensity_NIGHT;
 			dayVolume.weight = 0;
 			nightVolume.weight = 1;
+			RenderSettings.ambientMode = AmbientMode.Flat;
+			RenderSettings.ambientSkyColor = lightColor_NIGHT;
 		}	
 	}
 

@@ -41,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+		if (!WorldManager.I.GameOn)
+			return;
+		
 		var horMovement = inputManager.MovementInput;
 		var horVel = tm.right * horMovement.x + tm.forward * horMovement.y;
 		var finalSpeed = Sprinting ? sprintSpeed : walkSpeed;

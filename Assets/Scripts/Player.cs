@@ -20,9 +20,6 @@ public class Player : MonoBehaviour
 
 		mouseLook = GetComponentInChildren<MouseLook>();
 		mouseLook.Init(movement);
-
-		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	private void Start()

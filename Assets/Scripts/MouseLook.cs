@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
 	private void Update()
 	{
 		if (!IsReady) return;
+		if (!WorldManager.I.GameOn) return;
 
 		var delta = inputManager.LookInput;
 		delta *= sensitivity;

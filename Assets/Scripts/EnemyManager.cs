@@ -1,19 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Util;
 
 public class EnemyManager : MonoBehaviour
 {
-	[SerializeField] private List<EnemySpawner> spawners;
 	[SerializeField] private float spawnInterval;
 	[SerializeField] private int maxConcurrentEnemies;
-	
+
+	private bool initialised;
 	private float elapsed;
+	private List<EnemySpawner> spawners = new();
 	private readonly List<Enemy> enemies = new();
+
+	private void Start()
+	{
+		MapGenerator.I.MapGenerated += OnMapGenerated;
+	}
+
+	private void OnMapGenerated()
+	{
+		MapGenerator.I.MapGenerated -= OnMapGenerated;
+		var spawnerGOS = GameObject.FindGameObjectsWithTag("EnemySpawner");
+		foreach (var o in spawnerGOS)
+		{
+			spawners.Add(o.GetComponent<EnemySpawner>());
+		}
+
+		initialised = true;
+	}
 
 	private void Update()
 	{
+		if (!initialised) return;
+		
 		elapsed += Time.deltaTime;
 		if (elapsed > spawnInterval && ShouldSpawn())
 		{

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,9 +8,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float sprintSpeed = 7;
 	[SerializeField] private float jumpHeight = 1.5f;
 	[SerializeField] private float jumpTimingForgiveness = 0.1f;
+	private CharacterController cc;
 
 	private InputManager inputManager;
-	private CharacterController cc;
 	private Transform tm;
 
 	//------------------------------
@@ -41,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	private Vector3 verticalVel;
+
 	private void Update()
 	{
 		var horMovement = inputManager.MovementInput;

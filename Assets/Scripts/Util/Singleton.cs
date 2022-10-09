@@ -11,14 +11,14 @@ namespace Util
 		{
 			ProcessSingleton();
 		}
-		
-		private void  ProcessSingleton()
+
+		private void ProcessSingleton()
 		{
 			if (!Application.isPlaying) return;
 
 			if (I != null)
 			{
-				Destroy(gameObject); 
+				Destroy(gameObject);
 				return;
 			}
 

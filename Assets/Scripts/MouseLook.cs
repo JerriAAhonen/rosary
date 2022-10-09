@@ -3,7 +3,7 @@
 public class MouseLook : MonoBehaviour
 {
 	[SerializeField] private float sensitivity;
-	
+
 	private InputManager inputManager;
 	private PlayerMovement movement;
 	private Transform tm;
@@ -12,16 +12,6 @@ public class MouseLook : MonoBehaviour
 	private float yRot;
 
 	private bool IsReady { get; set; }
-	
-	public void Init(PlayerMovement movement)
-	{
-		inputManager = InputManager.I;
-		tm = transform;
-
-		this.movement = movement;
-
-		IsReady = true;
-	}
 
 	private void Update()
 	{
@@ -34,11 +24,21 @@ public class MouseLook : MonoBehaviour
 
 		xRot += pitch;
 		xRot = Mathf.Clamp(xRot, -89, 89);
-		
+
 		var targetRot = tm.eulerAngles;
 		targetRot.x = xRot;
 		tm.eulerAngles = targetRot;
-		
+
 		movement.Rotate(yaw);
+	}
+
+	public void Init(PlayerMovement movement)
+	{
+		inputManager = InputManager.I;
+		tm = transform;
+
+		this.movement = movement;
+
+		IsReady = true;
 	}
 }

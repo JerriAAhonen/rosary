@@ -1,10 +1,12 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class Player : MonoBehaviour
 {
-	private PlayerMovement movement;
 	private MouseLook mouseLook;
-	
+	private PlayerMovement movement;
+
 	private void Awake()
 	{
 		movement = GetComponent<PlayerMovement>();
@@ -12,5 +14,8 @@ public class Player : MonoBehaviour
 
 		mouseLook = GetComponentInChildren<MouseLook>();
 		mouseLook.Init(movement);
+
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 }

@@ -342,6 +342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netAnim: {fileID: 5913852447057697210}
+  swingAnimDuration: 0.4
+  netCollider: {fileID: 5960211229393083159}
 --- !u!143 &6026030434524170657
 CharacterController:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
 	private NavMeshAgent agent;
 
+	public event Action<Enemy> Captured;
+	
 	private void Awake()
 	{
 		agent = GetComponent<NavMeshAgent>();
@@ -24,5 +26,12 @@ public class Enemy : MonoBehaviour
 		{
 			player.Kill();
 		}
+	}
+
+	public void Capture()
+	{
+		Debug.Log("Enemy captured");
+		Captured?.Invoke(this);
+		Destroy(gameObject);
 	}
 }

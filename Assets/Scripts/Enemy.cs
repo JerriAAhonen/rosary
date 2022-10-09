@@ -113,7 +113,7 @@ public class Enemy : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		var player = other.gameObject.GetComponent<Player>();
-		if (player)
+		if (hunting && player)
 		{
 			player.Kill();
 		}

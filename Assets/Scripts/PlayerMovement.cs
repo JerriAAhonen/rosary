@@ -2,12 +2,10 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-	[SerializeField] private bool printDebugLogs;
 	[SerializeField] private float gravity = -30;
 	[SerializeField] private float walkSpeed = 5;
 	[SerializeField] private float sprintSpeed = 7;
 	[SerializeField] private float jumpHeight = 1.5f;
-	[SerializeField] private float jumpTimingForgiveness = 0.1f;
 	private CharacterController cc;
 
 	private InputManager inputManager;

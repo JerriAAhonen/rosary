@@ -35,6 +35,7 @@ public class MapGenerator : Singleton<MapGenerator>
 			var room = Instantiate(roomPrefabs.Random());
 			room.transform.position = pos;
 			room.transform.rotation = Quaternion.Euler(rotations.Random());
+			rooms.Add(room);
 			yield return null;
 		}
 

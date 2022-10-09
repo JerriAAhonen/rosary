@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Util;
 
@@ -17,6 +15,7 @@ public class EnemyManager : MonoBehaviour
 	private void Start()
 	{
 		MapGenerator.I.MapGenerated += OnMapGenerated;
+		WorldManager.I.GameOver += OnGameOver;
 	}
 
 	private void OnMapGenerated()
@@ -28,6 +27,18 @@ public class EnemyManager : MonoBehaviour
 		}
 
 		initialised = true;
+	}
+
+	private void OnGameOver()
+	{
+		foreach (var enemy in enemies)
+		{
+			Destroy(enemy);
+		}
+		
+		enemies.Clear();
+		spawners.Clear();
+		initialised = false;
 	}
 
 	private void Update()

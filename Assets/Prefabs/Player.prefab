@@ -327,7 +327,7 @@ Transform:
   - {fileID: 6026030435547259493}
   - {fileID: 6026030433784088317}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6026030434524170656
 MonoBehaviour:
@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8f281a0d30cb942abd449634630f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  netAnim: {fileID: 5913852447057697210}
 --- !u!143 &6026030434524170657
 CharacterController:
   m_ObjectHideFlags: 0

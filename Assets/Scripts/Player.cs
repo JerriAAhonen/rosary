@@ -1,11 +1,17 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
 public class Player : MonoBehaviour
 {
+	[SerializeField] private Animator netAnim;
+	[SerializeField] private float swingAnimDuration;
+	[SerializeField] private Collider netCollider;
+	
 	private MouseLook mouseLook;
 	private PlayerMovement movement;
+	private static readonly int Swing = Animator.StringToHash("Swing");
 
 	private void Awake()
 	{
@@ -17,6 +23,36 @@ public class Player : MonoBehaviour
 
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
+	}
+
+	private void Start()
+	{
+		InputManager.I.Shoot += OnShoot;
+		netCollider.enabled = false;
+	}
+
+	// Could use Animation Events, but they were weird and didn't have time to perehtyä
+	private bool swinging;
+	private float elapsedSwingTime;
+	private void Update()
+	{
+		if (swinging)
+		{
+			elapsedSwingTime += Time.deltaTime;
+			if (elapsedSwingTime >= swingAnimDuration)
+			{
+				swinging = false;
+				elapsedSwingTime = 0;
+				netCollider.enabled = false;
+			}
+		}
+	}
+
+	private void OnShoot()
+	{
+		netAnim.SetTrigger(Swing);
+		netCollider.enabled = true;
+		swinging = true;
 	}
 
 	public void Kill()

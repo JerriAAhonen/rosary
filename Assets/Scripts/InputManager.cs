@@ -47,7 +47,7 @@ public class InputManager : Singleton<InputManager>
 	public event Action Jump;
 	public event Action<bool, bool> Crouch;
 	public event Action<bool, bool> Sprint;
-	public event Action<bool> Shoot;
+	public event Action Shoot;
 	public event Action<bool> Aim;
 	public event Action SwitchWeapon;
 	public event Action ToggleDebugScreen;
@@ -72,7 +72,6 @@ public class InputManager : Singleton<InputManager>
 		pia.Player.Sprint.Enable();
 
 		pia.Player.Shoot.performed += OnShootPerformed;
-		pia.Player.Shoot.canceled += OnShootCancelled;
 		pia.Player.Shoot.Enable();
 
 		pia.Player.Aim.performed += OnAimPerformed;
@@ -117,12 +116,7 @@ public class InputManager : Singleton<InputManager>
 
 		void OnShootPerformed(InputAction.CallbackContext _)
 		{
-			Shoot?.Invoke(true);
-		}
-
-		void OnShootCancelled(InputAction.CallbackContext _)
-		{
-			Shoot?.Invoke(false);
+			Shoot?.Invoke();
 		}
 
 		void OnAimPerformed(InputAction.CallbackContext _)
@@ -158,7 +152,6 @@ public class InputManager : Singleton<InputManager>
 			pia.Player.Sprint.performed -= SprintPressed;
 			pia.Player.Sprint.canceled -= SprintCancelled;
 			pia.Player.Shoot.performed -= OnShootPerformed;
-			pia.Player.Shoot.canceled -= OnShootCancelled;
 			pia.Player.Aim.performed -= OnAimPerformed;
 			pia.Player.Aim.canceled -= OnAimCancelled;
 			pia.Player.PrimaryWeapon.performed -= OnPrimaryWeaponPerformed;

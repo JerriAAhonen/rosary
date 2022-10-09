@@ -58,5 +58,6 @@ public class Player : MonoBehaviour
 	public void Kill()
 	{
 		Debug.Log("Player died!");
+		WorldManager.I.OnGameOver();
 	}
 }

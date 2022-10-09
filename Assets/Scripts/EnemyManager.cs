@@ -21,7 +21,6 @@ public class EnemyManager : MonoBehaviour
 
 	private void OnMapGenerated()
 	{
-		MapGenerator.I.MapGenerated -= OnMapGenerated;
 		var spawnerGOS = GameObject.FindGameObjectsWithTag("EnemySpawner");
 		foreach (var o in spawnerGOS)
 		{

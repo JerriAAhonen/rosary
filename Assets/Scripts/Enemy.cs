@@ -8,6 +8,9 @@ public enum EnemyState { Wander, Chase, RunAway }
 
 public class Enemy : MonoBehaviour
 {
+	[SerializeField] private GameObject normalModel;
+	[SerializeField] private GameObject angryModel;
+	
 	private NavMeshAgent agent;
 	private NavMeshSurface navMesh;
 	private EnemyState state;
@@ -19,6 +22,17 @@ public class Enemy : MonoBehaviour
 		agent = GetComponent<NavMeshAgent>();
 	}
 
+	private void UpdateModel(bool hunt)
+	{
+		if (hunting != hunt)
+		{
+			hunting = hunt;
+			normalModel.SetActive(!hunt);
+			angryModel.SetActive(hunt);
+		}
+	}
+	
+	private bool hunting;
 	private Vector3 destination;
 	
 	private const float slowUpdateInterval = 2f;
@@ -33,16 +47,19 @@ public class Enemy : MonoBehaviour
 		{
 			Debug.Log("State: Chase");
 			state = EnemyState.Chase;
+			UpdateModel(true);
 		}
 		else if (dist > 14)
 		{
 			Debug.Log("State: Wander");
 			state = EnemyState.Wander;
+			UpdateModel(false);
 		}
 		else
 		{
 			Debug.Log("State: Run Away");
 			state = EnemyState.RunAway;
+			UpdateModel(false);
 		}
 
 		NavMeshHit hit;

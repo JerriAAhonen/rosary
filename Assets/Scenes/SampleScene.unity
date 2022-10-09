@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 1
-  maxConcurrentEnemies: 1
+  maxConcurrentEnemies: 5
 --- !u!114 &416100071
 MonoBehaviour:
   m_ObjectHideFlags: 0

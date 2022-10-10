@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4578439478849423712}
-  - component: {fileID: 5960211229393083159}
   - component: {fileID: 6024178322184436183}
+  - component: {fileID: 5960211229393083159}
   - component: {fileID: 5451473117124149758}
   - component: {fileID: 5913852447057697210}
   m_Layer: 6
@@ -36,6 +36,18 @@ Transform:
   m_Father: {fileID: 6026030433784088317}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -10.636, y: 24.782, z: 59.478}
+--- !u!114 &6024178322184436183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018628644353454916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51034d242d1a2de479a96af06068b91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &5960211229393083159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55,20 +67,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1233346, y: 0.38645422, z: 2.4618244}
-  m_Center: {x: 0.030762315, y: 0.03409952, z: 3.178347}
---- !u!114 &6024178322184436183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4018628644353454916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51034d242d1a2de479a96af06068b91b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 6.46, y: 3.05, z: 8.5}
+  m_Center: {x: 0.030762315, y: -1.22, z: 3.178347}
 --- !u!54 &5451473117124149758
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ Transform:
   - {fileID: 6026030435547259493}
   - {fileID: 6026030433784088317}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6026030434524170656
 MonoBehaviour:
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netAnim: {fileID: 5913852447057697210}
-  swingAnimDuration: 0.3
+  swingAnimDuration: 0.5
   netCollider: {fileID: 5960211229393083159}
 --- !u!143 &6026030434524170657
 CharacterController:
@@ -382,12 +382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3bc06230d516c44e8b23e1a5b9264ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  printDebugLogs: 0
   gravity: -30
   walkSpeed: 5
   sprintSpeed: 7
   jumpHeight: 1.5
-  jumpTimingForgiveness: 0.1
 --- !u!136 &7659665496955516286
 CapsuleCollider:
   m_ObjectHideFlags: 0

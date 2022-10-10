@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -20,6 +21,8 @@ public class Enemy : MonoBehaviour
 	private void Awake()
 	{
 		agent = GetComponent<NavMeshAgent>();
+		normalModel.SetActive(true);
+		angryModel.SetActive(false);
 	}
 
 	private void UpdateModel(bool hunt)
@@ -96,7 +99,8 @@ public class Enemy : MonoBehaviour
 				{
 					var awayFromPlayer = transform.position - playerPos * 14f;
 					awayFromPlayer += transform.position;
-					NavMesh.SamplePosition(awayFromPlayer, out hit, 28f, 1);
+					var found = NavMesh.SamplePosition(awayFromPlayer, out hit, 28f, NavMesh.AllAreas);
+					Debug.Log($"Found pos to flee to: {found}");
 					destination = hit.position;
 					agent.SetDestination(destination);
 
@@ -121,7 +125,7 @@ public class Enemy : MonoBehaviour
 
 	public void Capture()
 	{
-		Debug.Log("Enemy captured");
+		Debug.LogError("Enemy captured");
 		Captured?.Invoke(this);
 		Destroy(gameObject);
 	}

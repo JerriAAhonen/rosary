@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 	private PlayerMovement movement;
 	private static readonly int Swing = Animator.StringToHash("Swing");
 
+	public bool DEBUG_NetColliderOn => netCollider.enabled;
+
 	private void Awake()
 	{
 		movement = GetComponent<PlayerMovement>();
@@ -47,6 +49,8 @@ public class Player : MonoBehaviour
 
 	private void OnShoot()
 	{
+		if (!WorldManager.I.GameOn) return;
+		
 		netAnim.SetTrigger(Swing);
 		netCollider.enabled = true;
 		swinging = true;

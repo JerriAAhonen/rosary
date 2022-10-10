@@ -33,7 +33,7 @@ public class EnemyManager : MonoBehaviour
 	{
 		foreach (var enemy in enemies)
 		{
-			Destroy(enemy);
+			Destroy(enemy.gameObject);
 		}
 		
 		enemies.Clear();

@@ -47,6 +47,6 @@ public class UI : Singleton<UI>
 
 	public void SetScore(int score)
 	{
-		scoreLabel.text = $"Ghosts captured: {score}";
+		scoreLabel.text = $"{score}";
 	}
 }

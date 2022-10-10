@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -37,9 +36,9 @@ public class Enemy : MonoBehaviour
 	
 	private bool hunting;
 	private Vector3 destination;
+	private Vector3 awayFromPlayer;
 	
 	private const float slowUpdateInterval = 2f;
-	private const float RunawayInterval = 5f;
 	private float elapsed;
 	private void Update()
 	{
@@ -48,21 +47,30 @@ public class Enemy : MonoBehaviour
 
 		if (WorldManager.I.Hunt)
 		{
-			Debug.Log("State: Chase");
-			state = EnemyState.Chase;
-			UpdateModel(true);
+			if (state != EnemyState.Chase)
+			{
+				state = EnemyState.Chase;
+				elapsed = 999;
+				UpdateModel(true);
+			}
 		}
-		else if (dist > 14)
+		else if (dist <= 30)
 		{
-			Debug.Log("State: Wander");
-			state = EnemyState.Wander;
-			UpdateModel(false);
+			if (state != EnemyState.RunAway)
+			{
+				state = EnemyState.RunAway;
+				elapsed = 999;
+				UpdateModel(false);
+			}
 		}
 		else
 		{
-			Debug.Log("State: Run Away");
-			state = EnemyState.RunAway;
-			UpdateModel(false);
+			if (state != EnemyState.Wander)
+			{
+				state = EnemyState.Wander;
+				elapsed = 999;
+				UpdateModel(false);
+			}
 		}
 
 		NavMeshHit hit;
@@ -95,13 +103,15 @@ public class Enemy : MonoBehaviour
 				}
 				break;
 			case EnemyState.RunAway:
-				if (elapsed > RunawayInterval)
+				if (true)
 				{
-					var awayFromPlayer = transform.position - playerPos * 14f;
+					awayFromPlayer = transform.position - playerPos;
 					awayFromPlayer += transform.position;
-					var found = NavMesh.SamplePosition(awayFromPlayer, out hit, 28f, NavMesh.AllAreas);
-					Debug.Log($"Found pos to flee to: {found}");
-					destination = hit.position;
+					var found = NavMesh.SamplePosition(awayFromPlayer, out hit, 14f, 1);
+					if (!found)
+						destination = GetRandomPos();
+					else
+						destination = hit.position;
 					agent.SetDestination(destination);
 
 					elapsed = 0;
@@ -125,11 +135,17 @@ public class Enemy : MonoBehaviour
 
 	public void Capture()
 	{
-		Debug.LogError("Enemy captured");
 		Captured?.Invoke(this);
 		Destroy(gameObject);
 	}
 
+	private Vector3 GetRandomPos()
+	{
+		var x = Random.Range(-14f, 14f);
+		var z = Random.Range(-14f, 14f);
+		return new Vector3(x, 0, z);
+	}
+	
 	private void OnDrawGizmos()
 	{
 		switch (state)
@@ -148,6 +164,7 @@ public class Enemy : MonoBehaviour
 		}
 		
 		Gizmos.DrawSphere(destination, 1f);
+		Gizmos.DrawSphere(awayFromPlayer, 1f);
 		Gizmos.DrawRay(transform.position + Vector3.up, ((destination + Vector3.up) - transform.position).normalized * 10);
 	}
 }

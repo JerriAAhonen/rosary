@@ -12,9 +12,6 @@ public class UI : Singleton<UI>
 	[SerializeField] private TextMeshProUGUI timer;
 	[SerializeField] private TextMeshProUGUI highScoreLabel;
 
-	[Header("DEBUG")] 
-	[SerializeField] private UIDebugField netCollider;
-
 	private void Start()
 	{
 		core.SetActive(false);
@@ -40,8 +37,6 @@ public class UI : Singleton<UI>
 	private void Update()
 	{
 		timer.text = TimeManager.I.TimeUntilChange.ToString();
-		
-		netCollider.SetBool(WorldManager.I.Player.DEBUG_NetColliderOn);
 	}
 
 	private void OnGameOver()

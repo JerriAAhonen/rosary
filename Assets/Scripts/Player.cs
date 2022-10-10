@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
 	private PlayerMovement movement;
 	private static readonly int Swing = Animator.StringToHash("Swing");
 
-	public bool DEBUG_NetColliderOn => netCollider.enabled;
-
 	private void Awake()
 	{
 		movement = GetComponent<PlayerMovement>();
@@ -45,8 +43,13 @@ public class Player : MonoBehaviour
 				netCollider.enabled = false;
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.F3))
+			godMode = !godMode;
 	}
 
+	private bool godMode;
+	
 	private void OnShoot()
 	{
 		if (!WorldManager.I.GameOn) return;
@@ -58,6 +61,9 @@ public class Player : MonoBehaviour
 
 	public void Kill()
 	{
+		if (godMode)
+			return;
+		
 		Debug.Log("Player died!");
 		WorldManager.I.OnGameOver();
 	}

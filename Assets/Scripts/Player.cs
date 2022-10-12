@@ -1,16 +1,19 @@
-using System;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 public class Player : MonoBehaviour
 {
 	[SerializeField] private Animator netAnim;
 	[SerializeField] private float swingAnimDuration;
 	[SerializeField] private Collider netCollider;
-	
+
+	private GameObject net;
 	private MouseLook mouseLook;
 	private PlayerMovement movement;
+	private bool godMode;
+	
+	private bool swinging;
+	private float elapsedSwingTime;
+	
 	private static readonly int Swing = Animator.StringToHash("Swing");
 
 	private void Awake()
@@ -20,17 +23,17 @@ public class Player : MonoBehaviour
 
 		mouseLook = GetComponentInChildren<MouseLook>();
 		mouseLook.Init(movement);
+
+		net = netCollider.gameObject;
 	}
 
 	private void Start()
 	{
 		InputManager.I.Shoot += OnShoot;
+		WorldManager.I.StartGame += OnStartGame;
 		netCollider.enabled = false;
 	}
-
-	// Could use Animation Events, but they were weird and didn't have time to perehtyä
-	private bool swinging;
-	private float elapsedSwingTime;
+	
 	private void Update()
 	{
 		if (swinging)
@@ -45,11 +48,22 @@ public class Player : MonoBehaviour
 		}
 
 		if (Input.GetKeyDown(KeyCode.F3))
+		{
+			Debug.Log($"God mode: {godMode}");
 			godMode = !godMode;
+		}
+	}
+	
+	public void Kill()
+	{
+		if (godMode)
+			return;
+		
+		Debug.Log("Player died!");
+		WorldManager.I.OnGameOver();
+		net.SetActive(false);
 	}
 
-	private bool godMode;
-	
 	private void OnShoot()
 	{
 		if (!WorldManager.I.GameOn) return;
@@ -59,12 +73,8 @@ public class Player : MonoBehaviour
 		swinging = true;
 	}
 
-	public void Kill()
+	private void OnStartGame()
 	{
-		if (godMode)
-			return;
-		
-		Debug.Log("Player died!");
-		WorldManager.I.OnGameOver();
+		net.SetActive(true);
 	}
 }

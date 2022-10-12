@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using Util;
@@ -14,35 +13,38 @@ public class UI : Singleton<UI>
 
 	private void Start()
 	{
-		core.SetActive(false);
-		meta.SetActive(true);
+		WorldManager.I.GameOver += Refresh;
+		WorldManager.I.StartGame += Refresh;
 
-		WorldManager.I.GameOver += OnGameOver;
-
-		var highscore = PlayerPrefs.HasKey(Net.HighScoreKey) ? PlayerPrefs.GetInt(Net.HighScoreKey) : 0;
-		highScoreLabel.text = $"Highscore: {highscore}";
+		Refresh();
 	}
 
 	public void OnStart()
 	{
-		core.SetActive(true);
-		meta.SetActive(false);
-
-		SetScore(0);
-		
-		// Start game
 		WorldManager.I.OnStart();
 	}
 
 	private void Update()
 	{
-		timer.text = TimeManager.I.TimeUntilChange.ToString();
+		if (WorldManager.I.GameOn)
+			timer.text = TimeManager.I.TimeUntilChange.ToString();
 	}
 
-	private void OnGameOver()
+	private void Refresh()
 	{
-		core.SetActive(false);
-		meta.SetActive(true);
+		var gameOn = WorldManager.I.GameOn;
+		core.SetActive(gameOn);
+		meta.SetActive(!gameOn);
+		
+		if (WorldManager.I.GameOn)
+		{
+			SetScore(0);
+		}
+		else
+		{
+			var highscore = PlayerPrefs.HasKey(Net.HighScoreKey) ? PlayerPrefs.GetInt(Net.HighScoreKey) : 0;
+			highScoreLabel.text = $"Highscore: {highscore}";
+		}
 	}
 
 	public void SetScore(int score)

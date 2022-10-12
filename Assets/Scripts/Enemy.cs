@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 	[SerializeField] private GameObject normalModel;
 	[SerializeField] private GameObject angryModel;
 	[SerializeField] private GameObject capturedPS;
+	[SerializeField] private GameObject changedPS;
 	
 	private NavMeshAgent agent;
 	private NavMeshSurface navMesh;
@@ -32,6 +33,8 @@ public class Enemy : MonoBehaviour
 			hunting = hunt;
 			normalModel.SetActive(!hunt);
 			angryModel.SetActive(hunt);
+			var ps = Instantiate(changedPS);
+			ps.transform.position = transform.position + Vector3.up * 0.65f;
 		}
 	}
 	

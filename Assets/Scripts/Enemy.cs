@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 {
 	[SerializeField] private GameObject normalModel;
 	[SerializeField] private GameObject angryModel;
+	[SerializeField] private GameObject capturedPS;
 	
 	private NavMeshAgent agent;
 	private NavMeshSurface navMesh;
@@ -136,6 +137,8 @@ public class Enemy : MonoBehaviour
 	public void Capture()
 	{
 		Captured?.Invoke(this);
+		var ps = Instantiate(capturedPS);
+		ps.transform.position = transform.position + Vector3.up * 0.65f;
 		Destroy(gameObject);
 	}
 
@@ -144,27 +147,5 @@ public class Enemy : MonoBehaviour
 		var x = Random.Range(-14f, 14f);
 		var z = Random.Range(-14f, 14f);
 		return new Vector3(x, 0, z);
-	}
-	
-	private void OnDrawGizmos()
-	{
-		switch (state)
-		{
-			case EnemyState.Wander:
-				Gizmos.color = Color.green;		
-				break;
-			case EnemyState.Chase:
-				Gizmos.color = Color.red;
-				break;
-			case EnemyState.RunAway:
-				Gizmos.color = Color.blue;
-				break;
-			default:
-				throw new ArgumentOutOfRangeException();
-		}
-		
-		Gizmos.DrawSphere(destination, 1f);
-		Gizmos.DrawSphere(awayFromPlayer, 1f);
-		Gizmos.DrawRay(transform.position + Vector3.up, ((destination + Vector3.up) - transform.position).normalized * 10);
 	}
 }

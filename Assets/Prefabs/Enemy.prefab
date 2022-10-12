@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalModel: {fileID: 3211334628723074489}
   angryModel: {fileID: 5338143455345421642}
+  capturedPS: {fileID: 542277770743863331, guid: 57f3d3337c58ab048a53db6e74729ee0,
+    type: 3}
 --- !u!195 &995215540793511389
 NavMeshAgent:
   m_ObjectHideFlags: 0

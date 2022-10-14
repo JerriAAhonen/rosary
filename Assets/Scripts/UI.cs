@@ -50,5 +50,7 @@ public class UI : Singleton<UI>
 	public void SetScore(int score)
 	{
 		scoreLabel.text = $"{score}";
+		scoreLabel.transform.localScale = Vector3.zero;
+		LeanTween.scale(scoreLabel.gameObject, Vector3.one, 0.3f).setEase(LeanTweenType.easeOutBack);
 	}
 }

@@ -34,6 +34,7 @@ public class TimeManager : Singleton<TimeManager>
 	{
 		WorldManager.I.StartGame += OnGameStart;
 		WorldManager.I.GameOver += OnGameOver;
+		UISunMoonDisplay.I.Rotate(day);
 		
 		directionalLight.intensity = lightIntensity_DAY;
 		dayVolume.weight = 1;
@@ -69,6 +70,7 @@ public class TimeManager : Singleton<TimeManager>
 	{
 		day = !day;
 		StartCoroutine(Routine());
+		UISunMoonDisplay.I.Rotate(day);
 	}
 
 	private IEnumerator Routine()

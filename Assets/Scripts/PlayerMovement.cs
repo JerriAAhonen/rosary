@@ -3,6 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
 	[SerializeField] private float walkSpeed = 5;
+	[SerializeField] private AudioEvent walkSFX;
 	
 	private CharacterController cc;
 	private InputManager inputManager;
@@ -29,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
 		var horMovement = inputManager.MovementInput;
 		var horVel = tm.right * horMovement.x + tm.forward * horMovement.y;
 		cc.Move(horVel * (walkSpeed * Time.deltaTime));
+
+		if (horVel.sqrMagnitude > 0)
+			AudioManager.I.PlayOnce(walkSFX);
 	}
 
 	#endregion

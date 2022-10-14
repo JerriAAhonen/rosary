@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
+  walkSFX: {fileID: 11400000, guid: ff96580dcf114974cb419169adbd2c14, type: 2}
 --- !u!136 &7659665496955516286
 CapsuleCollider:
   m_ObjectHideFlags: 0

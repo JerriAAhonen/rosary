@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Util;
@@ -8,7 +6,6 @@ using Util;
 public class TimeManager : Singleton<TimeManager>
 {
 	[Header("General")]
-	[SerializeField] private bool day;
 	[SerializeField] private float turnDuration;
 	[SerializeField] private float transitionDuration;
 	
@@ -27,10 +24,11 @@ public class TimeManager : Singleton<TimeManager>
 	[SerializeField] private Color lightColor_NIGHT;
 	[SerializeField] private Material skybox_NIGHT;
 
-	public int TimeUntilChange => Mathf.FloorToInt(timeUntilChange);
-	public bool Day => day;
-
+	private bool day = true;
 	private float timeUntilChange;
+	
+	public int TimeUntilChange => Mathf.FloorToInt(timeUntilChange);
+	public bool Day { get; private set; } = true;
 
 	private void Start()
 	{
@@ -99,7 +97,9 @@ public class TimeManager : Singleton<TimeManager>
 			{
 				UIDimmer.I.Blink(1f, () =>
 				{
+					// Change everything here!
 					RenderSettings.skybox = day ? skybox_DAY : skybox_NIGHT;
+					Day = day;
 				});
 				skyboxChanged = true;
 			}

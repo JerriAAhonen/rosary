@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -7,10 +8,15 @@ public class AudioManager : Singleton<AudioManager>
 {
 	[SerializeField] private Transform sourceContainer;
 	[SerializeField] private Transform mainCamTm;
+	[Space]
+	[SerializeField] private AudioClip dayMusic;
+	[SerializeField] private AudioClip nightMusic;
 	
 	private IObjectPool<AudioSource> pool;
 	private List<AudioSource> activeSources = new();
 	private Dictionary<AudioEvent, float> cooldowns = new();
+	private AudioSource dayMusicSource;
+	private AudioSource nightMusicSource;
 
 	protected override void Awake()
 	{
@@ -32,6 +38,18 @@ public class AudioManager : Singleton<AudioManager>
 				activeSources.Remove(s);
 			},
 			Destroy);
+
+		dayMusicSource = CreateAudioSource();
+		dayMusicSource.clip = dayMusic;
+		dayMusicSource.loop = true;
+		dayMusicSource.transform.SetParent(mainCamTm);
+		dayMusicSource.transform.localPosition = Vector3.zero;
+		
+		nightMusicSource = CreateAudioSource();
+		nightMusicSource.clip = nightMusic;
+		nightMusicSource.loop = true;
+		nightMusicSource.transform.SetParent(mainCamTm);
+		nightMusicSource.transform.localPosition = Vector3.zero;
 	}
 
 	private void LateUpdate()
@@ -76,7 +94,40 @@ public class AudioManager : Singleton<AudioManager>
 		else
 			s.PlayDelayed(ae.Delay);
 
+		// TODO: Return audiosource to pool
+		
 		return s.clip.length / Mathf.Abs(s.pitch);
+	}
+
+	public void PlayMusic(bool day)
+	{
+		StartCoroutine(MusicSwitchRoutine(day));
+	}
+
+	private IEnumerator MusicSwitchRoutine(bool day)
+	{
+		if (day)
+		{
+			dayMusicSource.time = 0f;
+			dayMusicSource.Play();
+		}
+		else
+		{
+			nightMusicSource.time = 0f;
+			nightMusicSource.Play();
+		}
+		
+		var duration = 1f;
+		var elapsed = 0f;
+		while (elapsed < duration)
+		{
+			var step = elapsed / duration;
+			dayMusicSource.volume = Mathf.Lerp(day ? 0f : 1f, day ? 1f : 0f, step);
+			nightMusicSource.volume = Mathf.Lerp(day ? 1f : 0f, day ? 0f : 1f, step);
+			
+			elapsed += Time.deltaTime;
+			yield return null;
+		}
 	}
 
 	private AudioSource CreateAudioSource()

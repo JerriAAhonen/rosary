@@ -19,11 +19,12 @@ public class TimeManager : Singleton<TimeManager>
 	[SerializeField] private Color lightColor_DAY;
 	[SerializeField] private Material skybox_DAY;
 	[SerializeField] private AudioEvent roosterSFX;
-	
+
 	[Header("Night")]
 	[SerializeField] private float lightIntensity_NIGHT;
 	[SerializeField] private Color lightColor_NIGHT;
 	[SerializeField] private Material skybox_NIGHT;
+	[SerializeField] private AudioEvent laughSFX;
 
 	private bool day;
 	private float timeUntilChange;
@@ -38,6 +39,7 @@ public class TimeManager : Singleton<TimeManager>
 		UISunMoonDisplay.I.Rotate(day);
 		
 		SetWithoutFading();
+		AudioManager.I.PlayMusic(true);
 	}
 
 	private void Update()
@@ -57,11 +59,11 @@ public class TimeManager : Singleton<TimeManager>
 
 	private void OnGameOver()
 	{
+		timeUntilChange = 0;
 	}
 
 	private void OnGameStart()
 	{
-		timeUntilChange = turnDuration;
 	}
 
 	private void ChangeDay()
@@ -73,8 +75,6 @@ public class TimeManager : Singleton<TimeManager>
 
 	private IEnumerator Routine()
 	{
-		AudioManager.I.PlayOnce(roosterSFX);
-		
 		var skyboxChanged = false;
 		var elapsed = 0f;
 		while (elapsed < transitionDuration)
@@ -101,6 +101,8 @@ public class TimeManager : Singleton<TimeManager>
 				{
 					// Change everything here!
 					RenderSettings.skybox = day ? skybox_DAY : skybox_NIGHT;
+					AudioManager.I.PlayMusic(day);
+					AudioManager.I.PlayOnce(day ? roosterSFX : laughSFX);
 					Day = day;
 				});
 				skyboxChanged = true;

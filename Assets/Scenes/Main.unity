@@ -1062,6 +1062,7 @@ MonoBehaviour:
   lightIntensity_NIGHT: 0
   lightColor_NIGHT: {r: 0.09714311, g: 0.37464535, b: 0.5566038, a: 1}
   skybox_NIGHT: {fileID: 2100000, guid: 3f1e52dec055a3a4f850420ef19cb2b2, type: 2}
+  laughSFX: {fileID: 11400000, guid: 623659df69bdb2f41bf0bd2c3f47829d, type: 2}
 --- !u!114 &416100073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1077,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sourceContainer: {fileID: 1421004694}
   mainCamTm: {fileID: 6026030433670189156}
+  dayMusic: {fileID: 8300000, guid: 6ed2fc81258a6704190bf599ade685d4, type: 3}
+  nightMusic: {fileID: 8300000, guid: d47617076d686d748b645b32e2e587cd, type: 3}
 --- !u!1001 &416401383
 PrefabInstance:
   m_ObjectHideFlags: 0

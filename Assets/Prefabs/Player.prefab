@@ -344,6 +344,7 @@ MonoBehaviour:
   netAnim: {fileID: 5913852447057697210}
   swingAnimDuration: 0.5
   netCollider: {fileID: 5960211229393083159}
+  swingSFX: {fileID: 11400000, guid: 2a4bcf2a35e38e64287da9fe74f9ed8a, type: 2}
 --- !u!143 &6026030434524170657
 CharacterController:
   m_ObjectHideFlags: 0

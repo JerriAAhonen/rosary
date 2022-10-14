@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private Animator netAnim;
 	[SerializeField] private float swingAnimDuration;
 	[SerializeField] private Collider netCollider;
+	[SerializeField] private AudioEvent swingSFX;
 
 	private MouseLook mouseLook;
 	private PlayerMovement movement;
@@ -66,5 +67,7 @@ public class Player : MonoBehaviour
 		netAnim.SetTrigger(Swing);
 		netCollider.enabled = true;
 		swinging = true;
+
+		AudioManager.I.PlayOnce(swingSFX);
 	}
 }

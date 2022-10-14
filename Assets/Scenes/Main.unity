@@ -1058,6 +1058,7 @@ MonoBehaviour:
   lightIntensity_DAY: 1
   lightColor_DAY: {r: 0.9811321, g: 0.92269, b: 0.6803133, a: 1}
   skybox_DAY: {fileID: 2100000, guid: 94d852a7748a347489661febea5eafc6, type: 2}
+  roosterSFX: {fileID: 11400000, guid: 9260fbe2de48c534fba7d99bd8b1f42b, type: 2}
   lightIntensity_NIGHT: 0
   lightColor_NIGHT: {r: 0.09714311, g: 0.37464535, b: 0.5566038, a: 1}
   skybox_NIGHT: {fileID: 2100000, guid: 3f1e52dec055a3a4f850420ef19cb2b2, type: 2}

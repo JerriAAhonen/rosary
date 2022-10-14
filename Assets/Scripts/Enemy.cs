@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 	[SerializeField] private GameObject angryModel;
 	[SerializeField] private GameObject capturedPS;
 	[SerializeField] private GameObject changedPS;
+	[SerializeField] private AudioEvent capturedSFX;
 	
 	private NavMeshAgent agent;
 	private NavMeshSurface navMesh;
@@ -142,6 +143,9 @@ public class Enemy : MonoBehaviour
 		Captured?.Invoke(this);
 		var ps = Instantiate(capturedPS);
 		ps.transform.position = transform.position + Vector3.up * 0.65f;
+
+		AudioManager.I.PlayOnce(capturedSFX, transform.position);
+		
 		Destroy(gameObject);
 	}
 

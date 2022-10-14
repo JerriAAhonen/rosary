@@ -54,6 +54,7 @@ MonoBehaviour:
     type: 3}
   changedPS: {fileID: 542277770743863331, guid: b83451fe26b43e74082b11440a545c57,
     type: 3}
+  capturedSFX: {fileID: 11400000, guid: 2e72c2daa95479041badfe00880b309f, type: 2}
 --- !u!195 &995215540793511389
 NavMeshAgent:
   m_ObjectHideFlags: 0

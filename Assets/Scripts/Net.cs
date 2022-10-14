@@ -17,21 +17,27 @@ public class Net : MonoBehaviour
 	{
 		WorldManager.I.StartGame += OnGameStart;
 		WorldManager.I.GameOver += OnGameOver;
+		
+		EnableNetMeshRenderers(false);
 	}
 
 	private void OnGameStart()
 	{
-		foreach (var meshRenderer in meshRenderers)
-			meshRenderer.enabled = true;
+		EnableNetMeshRenderers(true);
 	}
 	
 	private void OnGameOver()
 	{
 		PlayerPrefs.SetInt(HighScoreKey, score);
 		score = 0;
-		
+
+		EnableNetMeshRenderers(false);
+	}
+
+	private void EnableNetMeshRenderers(bool enable)
+	{
 		foreach (var meshRenderer in meshRenderers)
-			meshRenderer.enabled = false;
+			meshRenderer.enabled = enable;
 	}
 	
 	private void OnTriggerEnter(Collider other)

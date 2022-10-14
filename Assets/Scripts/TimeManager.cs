@@ -24,11 +24,11 @@ public class TimeManager : Singleton<TimeManager>
 	[SerializeField] private Color lightColor_NIGHT;
 	[SerializeField] private Material skybox_NIGHT;
 
-	private bool day = true;
+	private bool day;
 	private float timeUntilChange;
 	
 	public int TimeUntilChange => Mathf.FloorToInt(timeUntilChange);
-	public bool Day { get; private set; } = true;
+	public bool Day { get; private set; }
 
 	private void Start()
 	{
@@ -36,10 +36,7 @@ public class TimeManager : Singleton<TimeManager>
 		WorldManager.I.GameOver += OnGameOver;
 		UISunMoonDisplay.I.Rotate(day);
 		
-		directionalLight.intensity = lightIntensity_DAY;
-		dayVolume.weight = 1;
-		nightVolume.weight = 0;
-		RenderSettings.ambientSkyColor = lightColor_DAY;
+		SetWithoutFading();
 	}
 
 	private void Update()
@@ -110,6 +107,11 @@ public class TimeManager : Singleton<TimeManager>
 			yield return null;
 		}
 
+		SetWithoutFading();
+	}
+
+	private void SetWithoutFading()
+	{
 		if (day)
 		{
 			directionalLight.intensity = lightIntensity_DAY;

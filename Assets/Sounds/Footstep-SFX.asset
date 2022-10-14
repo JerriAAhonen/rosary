@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5fd821401f0534e97b171440958cc8, type: 3}
+  m_Name: Footstep-SFX
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 529be018d6f07674fb62d1b6543f870e, type: 3}
+  - {fileID: 8300000, guid: 9989451c8a2b91e41a84215ea59597a8, type: 3}
+  - {fileID: 8300000, guid: 3634865f4366b8544a2c21c3d40e9faf, type: 3}
+  - {fileID: 8300000, guid: 3410ce108b6097242a1a3d996bc1e825, type: 3}
+  volume: 1
+  volumeVariance: 0.1
+  pitch: 1
+  pitchVariance: 0.1
+  minInterval: 0.5
+  delay: 0

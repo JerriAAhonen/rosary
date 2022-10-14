@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e5fd821401f0534e97b171440958cc8, type: 3}
-  m_Name: Footstep-SFX
+  m_Name: GhostCaptured-SFX
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 529be018d6f07674fb62d1b6543f870e, type: 3}
-  - {fileID: 8300000, guid: 9989451c8a2b91e41a84215ea59597a8, type: 3}
-  - {fileID: 8300000, guid: 3634865f4366b8544a2c21c3d40e9faf, type: 3}
-  - {fileID: 8300000, guid: 3410ce108b6097242a1a3d996bc1e825, type: 3}
-  volume: 0.69
+  - {fileID: 8300000, guid: f4cdb88f276e88d47ba759f5df695f18, type: 3}
+  volume: 1
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0.1
-  minInterval: 0.5
+  minInterval: 0
   delay: 0

@@ -10,7 +10,7 @@ public class TimeManager : Singleton<TimeManager>
 	[Header("General")]
 	[SerializeField] private bool day;
 	[SerializeField] private float turnDuration;
-	[SerializeField] private float transitionDuration = 5f;
+	[SerializeField] private float transitionDuration;
 	
 	[Header("References")]
 	[SerializeField] private Light directionalLight;
@@ -20,17 +20,34 @@ public class TimeManager : Singleton<TimeManager>
 	[Header("Day")]
 	[SerializeField] private float lightIntensity_DAY;
 	[SerializeField] private Color lightColor_DAY;
+	[SerializeField] private Material skybox_DAY;
 	
 	[Header("Night")]
 	[SerializeField] private float lightIntensity_NIGHT;
 	[SerializeField] private Color lightColor_NIGHT;
+	[SerializeField] private Material skybox_NIGHT;
 
 	public int TimeUntilChange => Mathf.FloorToInt(timeUntilChange);
 	public bool Day => day;
 
 	private float timeUntilChange;
+
+	private void Start()
+	{
+		WorldManager.I.StartGame += OnGameStart;
+		WorldManager.I.GameOver += OnGameOver;
+		
+		directionalLight.intensity = lightIntensity_DAY;
+		dayVolume.weight = 1;
+		nightVolume.weight = 0;
+		RenderSettings.ambientSkyColor = lightColor_DAY;
+	}
+
 	private void Update()
 	{
+		if (!WorldManager.I.GameOn)
+			return;
+		
 		timeUntilChange -= Time.deltaTime;
 
 		if (timeUntilChange <= 0)
@@ -41,6 +58,15 @@ public class TimeManager : Singleton<TimeManager>
 		}
 	}
 
+	private void OnGameOver()
+	{
+	}
+
+	private void OnGameStart()
+	{
+		timeUntilChange = turnDuration;
+	}
+
 	private void ChangeDay()
 	{
 		day = !day;
@@ -49,6 +75,7 @@ public class TimeManager : Singleton<TimeManager>
 
 	private IEnumerator Routine()
 	{
+		var skyboxChanged = false;
 		var elapsed = 0f;
 		while (elapsed < transitionDuration)
 		{
@@ -68,27 +95,32 @@ public class TimeManager : Singleton<TimeManager>
 				RenderSettings.ambientSkyColor = Color.Lerp(lightColor_DAY, lightColor_NIGHT, step);
 			}
 			
+			if (elapsed > transitionDuration / 2f && !skyboxChanged)
+			{
+				UIDimmer.I.Blink(1f, () =>
+				{
+					RenderSettings.skybox = day ? skybox_DAY : skybox_NIGHT;
+				});
+				skyboxChanged = true;
+			}
+			
 			elapsed += Time.deltaTime;
 			yield return null;
 		}
-	}
 
-	private void OnValidate()
-	{
-		if (!directionalLight || !dayVolume || !nightVolume)
-			return;
-		
 		if (day)
 		{
 			directionalLight.intensity = lightIntensity_DAY;
 			dayVolume.weight = 1;
 			nightVolume.weight = 0;
+			RenderSettings.ambientSkyColor = lightColor_DAY;
 		}
 		else
 		{
 			directionalLight.intensity = lightIntensity_NIGHT;
 			dayVolume.weight = 0;
 			nightVolume.weight = 1;
+			RenderSettings.ambientSkyColor = lightColor_NIGHT;
 		}
 	}
 }

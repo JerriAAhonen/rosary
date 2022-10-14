@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465197997332608217}
+  - component: {fileID: 682271883889318474}
   m_Layer: 5
   m_Name: Meta
   m_TagString: Untagged
@@ -33,11 +34,23 @@ RectTransform:
   m_Father: {fileID: 465197997671294768}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 828, y: 464}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &682271883889318474
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465197997332608216}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &465197997344527004
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465197997782043397}
+  - component: {fileID: 8499939986369081919}
   m_Layer: 5
   m_Name: Core
   m_TagString: Untagged
@@ -472,6 +486,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &8499939986369081919
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465197997782043396}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &465197998060529576
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +622,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 465197997671294769}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: OnStart
+        m_MethodName: OnStartClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

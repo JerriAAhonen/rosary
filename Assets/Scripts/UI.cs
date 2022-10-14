@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using Util;
@@ -11,18 +12,38 @@ public class UI : Singleton<UI>
 	[SerializeField] private TextMeshProUGUI timer;
 	[SerializeField] private TextMeshProUGUI highScoreLabel;
 
-	private void Start()
-	{
-		WorldManager.I.GameOver += Refresh;
-		WorldManager.I.StartGame += Refresh;
+	private CanvasGroup coreCG;
+	private CanvasGroup metaCG;
+	private RectTransform coreRT;
+	private RectTransform metaRT;
 
-		Refresh();
+	protected override void Awake()
+	{
+		base.Awake();
+		coreCG = core.GetComponent<CanvasGroup>();
+		metaCG = meta.GetComponent<CanvasGroup>();
+		coreRT = core.GetComponent<RectTransform>();
+		metaRT = meta.GetComponent<RectTransform>();
 	}
 
-	public void OnStart()
+	private void Start()
+	{
+		WorldManager.I.StartGame += OnGameStart;
+		WorldManager.I.GameOver += OnGameOver;
+		
+		SetHighScore();
+		coreCG.alpha = 0f;
+		metaCG.alpha = 1f;
+	}
+
+	#region Unity Events
+
+	public void OnStartClicked()
 	{
 		WorldManager.I.OnStart();
 	}
+
+	#endregion
 
 	private void Update()
 	{
@@ -30,21 +51,66 @@ public class UI : Singleton<UI>
 			timer.text = TimeManager.I.TimeUntilChange.ToString();
 	}
 
-	private void Refresh()
+	private void OnGameStart()
 	{
-		var gameOn = WorldManager.I.GameOn;
-		core.SetActive(gameOn);
-		meta.SetActive(!gameOn);
+		StartCoroutine(StartRoutine());
+	}
+
+	private IEnumerator StartRoutine()
+	{
+		SetScore(0);
 		
-		if (WorldManager.I.GameOn)
-		{
-			SetScore(0);
-		}
-		else
-		{
-			var highscore = PlayerPrefs.HasKey(Net.HighScoreKey) ? PlayerPrefs.GetInt(Net.HighScoreKey) : 0;
-			highScoreLabel.text = $"Highscore: {highscore}";
-		}
+		// Tween meta out
+		LeanTween.value(gameObject, 1f, 0f, 0.5f)
+			.setOnUpdate(v => metaCG.alpha = v);
+
+		LeanTween.value(gameObject, 0, 1000f, 0.5f)
+			.setOnUpdate(v => metaRT.anchoredPosition = Vector3.up * v)
+			.setEase(LeanTweenType.easeOutCirc);
+
+		yield return new WaitForSeconds(0.5f);
+		
+		// Tween core in
+		LeanTween.value(gameObject, 0f, 1f, 0.5f)
+			.setOnUpdate(v => coreCG.alpha = v);
+
+		LeanTween.value(gameObject, 1000f, 0f, 0.5f)
+			.setOnUpdate(v => coreRT.anchoredPosition = Vector3.up * v)
+			.setEase(LeanTweenType.easeOutCirc);
+	}
+
+	private void OnGameOver()
+	{
+		StartCoroutine(EndRoutine());
+	}
+
+	private IEnumerator EndRoutine()
+	{
+		SetHighScore();
+		
+		// Tween core out
+		LeanTween.value(gameObject, 1f, 0f, 0.5f)
+			.setOnUpdate(v => coreCG.alpha = v);
+
+		LeanTween.value(gameObject, 0f, 1000f, 0.5f)
+			.setOnUpdate(v => coreRT.anchoredPosition = Vector3.up * v)
+			.setEase(LeanTweenType.easeOutCirc);
+		
+		yield return new WaitForSeconds(0.5f);
+		
+		// Tween meta in
+		LeanTween.value(gameObject, 0f, 1f, 0.5f)
+			.setOnUpdate(v => metaCG.alpha = v);
+
+		LeanTween.value(gameObject, 1000f, 0f, 0.5f)
+			.setOnUpdate(v => metaRT.anchoredPosition = Vector3.up * v)
+			.setEase(LeanTweenType.easeOutCirc);
+	}
+
+	private void SetHighScore()
+	{
+		var highscore = PlayerPrefs.HasKey(Net.HighScoreKey) ? PlayerPrefs.GetInt(Net.HighScoreKey) : 0;
+		highScoreLabel.text = $"Highscore: {highscore}";
 	}
 
 	public void SetScore(int score)

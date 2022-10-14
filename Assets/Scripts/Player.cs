@@ -49,8 +49,8 @@ public class Player : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.F3))
 		{
-			Debug.Log($"God mode: {godMode}");
 			godMode = !godMode;
+			Debug.Log($"God mode: {godMode}");
 		}
 	}
 	

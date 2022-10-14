@@ -40,6 +40,13 @@ public class MouseLook : MonoBehaviour
 
 		this.movement = movement;
 
+		WorldManager.I.GameOver += ResetRotation;
+
 		IsReady = true;
+	}
+
+	private void ResetRotation()
+	{
+		LeanTween.rotateLocal(gameObject, Vector3.zero, 1f);
 	}
 }

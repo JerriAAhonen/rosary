@@ -18,6 +18,7 @@ public class TimeManager : Singleton<TimeManager>
 	[SerializeField] private float lightIntensity_DAY;
 	[SerializeField] private Color lightColor_DAY;
 	[SerializeField] private Material skybox_DAY;
+	[SerializeField] private AudioEvent roosterSFX;
 	
 	[Header("Night")]
 	[SerializeField] private float lightIntensity_NIGHT;
@@ -72,6 +73,8 @@ public class TimeManager : Singleton<TimeManager>
 
 	private IEnumerator Routine()
 	{
+		AudioManager.I.PlayOnce(roosterSFX);
+		
 		var skyboxChanged = false;
 		var elapsed = 0f;
 		while (elapsed < transitionDuration)

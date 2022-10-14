@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 	[SerializeField] private float swingAnimDuration;
 	[SerializeField] private Collider netCollider;
 
-	private GameObject net;
 	private MouseLook mouseLook;
 	private PlayerMovement movement;
 	private bool godMode;
@@ -23,14 +22,11 @@ public class Player : MonoBehaviour
 
 		mouseLook = GetComponentInChildren<MouseLook>();
 		mouseLook.Init(movement);
-
-		net = netCollider.gameObject;
 	}
 
 	private void Start()
 	{
 		InputManager.I.Shoot += OnShoot;
-		WorldManager.I.StartGame += OnStartGame;
 		netCollider.enabled = false;
 	}
 	
@@ -61,7 +57,6 @@ public class Player : MonoBehaviour
 		
 		Debug.Log("Player died!");
 		WorldManager.I.OnGameOver();
-		net.SetActive(false);
 	}
 
 	private void OnShoot()
@@ -71,10 +66,5 @@ public class Player : MonoBehaviour
 		netAnim.SetTrigger(Swing);
 		netCollider.enabled = true;
 		swinging = true;
-	}
-
-	private void OnStartGame()
-	{
-		net.SetActive(true);
 	}
 }

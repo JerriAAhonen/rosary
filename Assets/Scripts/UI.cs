@@ -33,6 +33,7 @@ public class UI : Singleton<UI>
 		
 		SetHighScore();
 		coreCG.alpha = 0f;
+		coreRT.anchoredPosition = Vector3.up * 1000f;
 		metaCG.alpha = 1f;
 	}
 

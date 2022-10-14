@@ -872,7 +872,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 471
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -6162,11 +6162,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8086837522757425200, guid: 259f56238dc67c94bb6b38752dac0a19, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 259f56238dc67c94bb6b38752dac0a19, type: 3}
+--- !u!20 &465197997918124137 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3882107251878303645, guid: 259f56238dc67c94bb6b38752dac0a19,
+    type: 3}
+  m_PrefabInstance: {fileID: 465197997918124136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6026030433670189155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6175,6 +6182,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6026030433981859240, guid: c5a743eb5ab6b6a4dbe8a8a8524c79ac,
+        type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026030433981859240, guid: c5a743eb5ab6b6a4dbe8a8a8524c79ac,
+        type: 3}
+      propertyPath: m_Cameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 465197997918124137}
     - target: {fileID: 6026030434524170659, guid: c5a743eb5ab6b6a4dbe8a8a8524c79ac,
         type: 3}
       propertyPath: m_Name

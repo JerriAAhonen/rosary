@@ -236,7 +236,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 471
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -382,10 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3bc06230d516c44e8b23e1a5b9264ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -30
   walkSpeed: 5
-  sprintSpeed: 7
-  jumpHeight: 1.5
 --- !u!136 &7659665496955516286
 CapsuleCollider:
   m_ObjectHideFlags: 0

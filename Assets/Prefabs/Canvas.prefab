@@ -173,7 +173,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465197997332608216}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -486,7 +486,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465197997782043396}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -659,7 +659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -163.60669, y: -50.724396}
+  m_AnchoredPosition: {x: -959, y: -67}
   m_SizeDelta: {x: 224.1134, y: 80.24872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6459840856142281034
@@ -787,7 +787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 4, y: -53.3}
+  m_AnchoredPosition: {x: 887, y: -69}
   m_SizeDelta: {x: 33.1396, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &869145931580844474
@@ -846,8 +846,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fdd274c6230ddc943a6aac6948433736, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a43f414082fc26d4ca424a050b79b8d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1173,7 +1173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -83.399994, y: -51.2}
+  m_AnchoredPosition: {x: -960, y: -146}
   m_SizeDelta: {x: 70.78088, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &865160239578969468
@@ -1232,8 +1232,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.58
-  m_fontSizeBase: 44.58
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0363b791d032dad4b9535646d9f4afa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 991a1b5522c6f0d4e8373203f3291ac1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1483,12 +1483,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 346da85be145f114d8f8828347c633d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49
+      value: 834.00006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 346da85be145f114d8f8828347c633d9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 464
+      value: 448.29996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 346da85be145f114d8f8828347c633d9,
         type: 3}

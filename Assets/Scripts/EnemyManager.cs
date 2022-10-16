@@ -15,6 +15,7 @@ public class EnemyManager : MonoBehaviour
 	private void Start()
 	{
 		MapGenerator.I.MapGenerated += OnMapGenerated;
+		WorldManager.I.DisableEnemies += OnDisableEnemies;
 		WorldManager.I.GameOver += OnGameOver;
 	}
 
@@ -29,6 +30,14 @@ public class EnemyManager : MonoBehaviour
 		initialised = true;
 	}
 
+	private void OnDisableEnemies()
+	{
+		foreach (var enemy in enemies)
+		{
+			enemy.enabled = false;
+		}
+	}
+	
 	private void OnGameOver()
 	{
 		foreach (var enemy in enemies)
@@ -56,15 +65,7 @@ public class EnemyManager : MonoBehaviour
 		}
 	}
 
-	private bool ShouldSpawn()
-	{
-		if (enemies.Count < maxConcurrentEnemies)
-		{
-			return true;
-		}
-
-		return false;
-	}
+	private bool ShouldSpawn() => WorldManager.I.GameOn && enemies.Count < maxConcurrentEnemies;
 
 	private void EnemyCaptured(Enemy enemy)
 	{

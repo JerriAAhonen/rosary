@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float swingAnimDuration;
 	[SerializeField] private Collider netCollider;
 	[SerializeField] private AudioEvent swingSFX;
+	[SerializeField] private AudioEvent deathSFX;
 
 	private MouseLook mouseLook;
 	private PlayerMovement movement;
@@ -53,10 +54,11 @@ public class Player : MonoBehaviour
 	
 	public void Kill()
 	{
-		if (godMode)
+		if (godMode || !WorldManager.I.GameOn)
 			return;
 		
 		Debug.Log("Player died!");
+		AudioManager.I.PlayOnce(deathSFX);
 		WorldManager.I.OnGameOver();
 	}
 

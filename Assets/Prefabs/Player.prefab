@@ -345,6 +345,7 @@ MonoBehaviour:
   swingAnimDuration: 0.5
   netCollider: {fileID: 5960211229393083159}
   swingSFX: {fileID: 11400000, guid: 2a4bcf2a35e38e64287da9fe74f9ed8a, type: 2}
+  deathSFX: {fileID: 11400000, guid: c57c2888a83d46f479fad7420f56bf5b, type: 2}
 --- !u!143 &6026030434524170657
 CharacterController:
   m_ObjectHideFlags: 0

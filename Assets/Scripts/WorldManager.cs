@@ -13,6 +13,7 @@ public class WorldManager : Singleton<WorldManager>
 	public bool Hunt => hunt;
 
 	public event Action StartGame;
+	public event Action DisableEnemies;
 	public event Action GameOver;
 
 	public bool GameOn { get; private set; }
@@ -39,22 +40,41 @@ public class WorldManager : Singleton<WorldManager>
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 
-		LeanTween.value(gameObject, player.transform.position.y, 0, 1f)
-			.setOnUpdate(v => player.transform.position = new Vector3(0, v, 0))
-			.setOnComplete(() => playerMovement.enabled = true)
-			.setEase(LeanTweenType.easeOutQuad);
+		MovePlayerIntoMaze();
 	}
 
 	public void OnGameOver()
 	{
 		GameOn = false;
-		GameOver?.Invoke();
-		MapGenerator.I.ClearLevel();
+		DisableEnemies?.Invoke();
 		
-		Cursor.visible = true;
-		Cursor.lockState = CursorLockMode.Confined;
-
 		playerMovement.enabled = false;
+		
+		UIBanner.I.Show("Better luck next time");
+		LeanTween.delayedCall(6f, EndGame);
+
+		void EndGame()
+		{
+			GameOver?.Invoke();
+			MapGenerator.I.ClearLevel();
+		
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.Confined;
+			
+			MovePlayerToMainMenu();
+		}
+	}
+
+	private void MovePlayerIntoMaze()
+	{
+		LeanTween.value(gameObject, player.transform.position.y, 0, 1f)
+			.setOnUpdate(v => player.transform.position = new Vector3(0, v, 0))
+			.setOnComplete(() => playerMovement.enabled = true)
+			.setEase(LeanTweenType.easeOutQuad);
+	}
+	
+	private void MovePlayerToMainMenu()
+	{
 		LeanTween.value(gameObject, player.transform.position.y, playerMainMenuPos.position.y, 1f)
 			.setOnUpdate(v => player.transform.position = new Vector3(0, v, 0))
 			.setOnComplete(() => player.transform.position = playerMainMenuPos.position)

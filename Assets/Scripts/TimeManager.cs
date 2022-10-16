@@ -108,13 +108,17 @@ public class TimeManager : Singleton<TimeManager>
 
 					if (!day && firstNight)
 					{
-						UIHuntedInfo.I.Show();
+						UIBanner.I.Show("You are being hunted");
 						firstNight = false;
 					}
-					
-					if (!firstDay)
+
+					if (firstDay)
+					{
+						UIBanner.I.Show("Catch the ghosts!");
+						firstDay = false;
+					}
+					else
 						AudioManager.I.PlayMusic(day);
-					firstDay = false;
 				});
 				skyboxChanged = true;
 			}

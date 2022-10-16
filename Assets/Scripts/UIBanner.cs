@@ -20,11 +20,11 @@ public class UIBanner : Singleton<UIBanner>
 	{
 		label.text = text;
 		
-		LeanTween.value(gameObject, 0f, 1f, 3f)
+		LeanTween.value(gameObject, 0f, 1f, 1f)
 			.setOnUpdate(v => cg.alpha = v)
 			.setOnComplete(() =>
 			{
-				LeanTween.delayedCall(1f, () =>
+				LeanTween.delayedCall(0.5f, () =>
 				{
 					LeanTween.value(gameObject, 1f, 0f, 2f)
 						.setOnUpdate(v => cg.alpha = v);

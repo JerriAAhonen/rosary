@@ -51,7 +51,7 @@ public class WorldManager : Singleton<WorldManager>
 		playerMovement.enabled = false;
 		
 		UIBanner.I.Show("Better luck next time");
-		LeanTween.delayedCall(6f, EndGame);
+		LeanTween.delayedCall(4.5f, EndGame);
 
 		void EndGame()
 		{

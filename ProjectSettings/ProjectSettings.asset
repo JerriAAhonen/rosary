@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: 2jammy
-  productName: rosary
+  productName: Within the Hedges
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -137,7 +137,18 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 1186706116254692839, guid: 3b1e973fc951b684aa9e1aa3a8a7e8eb, type: 3}
+  - {fileID: 6518586802145188510, guid: 23be6928071700940a86cd847f535631, type: 3}
+  - {fileID: 265680872671953287, guid: 86122de4da8eece4fbd80a91b4d1c060, type: 3}
+  - {fileID: 5599075241123207167, guid: 6e939b110ed40b24dacea1eb243aa870, type: 3}
+  - {fileID: 2421603646374273112, guid: b2e9a24aebbeac44994426bfc0134b5b, type: 3}
+  - {fileID: 4720657041191630102, guid: 526b7dec1eeb47c4c97eaf986678d80c, type: 3}
+  - {fileID: 727505809704831042, guid: 66e40f00ec1dbcb46b61da94de74e59d, type: 3}
+  - {fileID: 4209339524591900391, guid: 60763b9a3ad01354c9a5d350542243e5, type: 3}
+  - {fileID: 995215540793511388, guid: bb1a48d7c5f6e364287cb69ab3a0bea6, type: 3}
+  - {fileID: 542277770743863331, guid: 57f3d3337c58ab048a53db6e74729ee0, type: 3}
+  - {fileID: 542277770743863331, guid: b83451fe26b43e74082b11440a545c57, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -272,7 +283,14 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: da4db9c1a98955c49ab8fd70c1980ffa, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone
     m_Icons:

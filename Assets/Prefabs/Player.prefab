@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netAnim: {fileID: 5913852447057697210}
+  net: {fileID: 6024178322184436183}
   swingAnimDuration: 0.5
   netCollider: {fileID: 5960211229393083159}
   swingSFX: {fileID: 11400000, guid: 2a4bcf2a35e38e64287da9fe74f9ed8a, type: 2}

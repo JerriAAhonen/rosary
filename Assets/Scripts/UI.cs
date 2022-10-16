@@ -43,6 +43,11 @@ public class UI : Singleton<UI>
 	{
 		WorldManager.I.OnStart();
 	}
+	
+	public void OnExitClicked()
+	{
+		Application.Quit();
+	}
 
 	#endregion
 

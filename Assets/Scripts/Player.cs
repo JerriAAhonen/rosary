@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+	public static string HighScoreKey = "HighScore";
+	
 	[SerializeField] private Animator netAnim;
+	[SerializeField] private Net net;
 	[SerializeField] private float swingAnimDuration;
 	[SerializeField] private Collider netCollider;
 	[SerializeField] private AudioEvent swingSFX;
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour
 			return;
 		
 		Debug.Log("Player died!");
+		PlayerPrefs.SetInt(HighScoreKey, net.Score);
 		AudioManager.I.PlayOnce(deathSFX);
 		WorldManager.I.OnGameOver();
 	}

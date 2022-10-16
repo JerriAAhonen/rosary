@@ -110,7 +110,7 @@ public class UI : Singleton<UI>
 
 	private void SetHighScore()
 	{
-		var highscore = PlayerPrefs.HasKey(Net.HighScoreKey) ? PlayerPrefs.GetInt(Net.HighScoreKey) : 0;
+		var highscore = PlayerPrefs.GetInt(Player.HighScoreKey, 0);
 		highScoreLabel.text = $"Highscore: {highscore}";
 	}
 

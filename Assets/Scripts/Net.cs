@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class Net : MonoBehaviour
 {
-	public static string HighScoreKey = "HighScore";
-
 	private MeshRenderer[] meshRenderers;
-	private int score;
+	public int Score { get; private set; }
 
 	private void Awake()
 	{
@@ -28,8 +26,7 @@ public class Net : MonoBehaviour
 	
 	private void OnGameOver()
 	{
-		PlayerPrefs.SetInt(HighScoreKey, score);
-		score = 0;
+		Score = 0;
 
 		EnableNetMeshRenderers(false);
 	}
@@ -46,8 +43,8 @@ public class Net : MonoBehaviour
 		if (enemy)
 		{
 			enemy.Capture();
-			score++;
-			UI.I.SetScore(score);
+			Score++;
+			UI.I.SetScore(Score);
 		}
 	}
 }

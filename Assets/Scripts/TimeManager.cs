@@ -28,7 +28,8 @@ public class TimeManager : Singleton<TimeManager>
 
 	private bool day;
 	private float timeUntilChange;
-	private bool firstTime = true;
+	private bool firstDay = true;
+	private bool firstNight = true;
 	
 	public int TimeUntilChange => Mathf.FloorToInt(timeUntilChange);
 	public bool Day { get; private set; }
@@ -104,10 +105,16 @@ public class TimeManager : Singleton<TimeManager>
 					RenderSettings.skybox = day ? skybox_DAY : skybox_NIGHT;
 					AudioManager.I.PlayOnce(day ? roosterSFX : laughSFX);
 					Day = day;
+
+					if (!day && firstNight)
+					{
+						UIHuntedInfo.I.Show();
+						firstNight = false;
+					}
 					
-					if (!firstTime)
+					if (!firstDay)
 						AudioManager.I.PlayMusic(day);
-					firstTime = false;
+					firstDay = false;
 				});
 				skyboxChanged = true;
 			}

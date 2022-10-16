@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &265680872671953272
 Transform:
@@ -80,6 +80,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 265680872671953272}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_RootOrder
@@ -135,10 +140,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_Name
       value: Bush (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767400413853537203, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2766,6 +2796,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 265680872671953272}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_RootOrder
@@ -2836,10 +2871,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 11.417
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_Name
       value: Bush
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767400413853537203, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2920,6 +2980,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 962862877519483897, guid: f2819f87d33a40449ab6be7e6090ec06,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2939,6 +3004,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 265680872671953272}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_RootOrder
@@ -2994,10 +3064,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 5.34
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_Name
       value: Bush (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767400413853537203, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3018,6 +3113,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 265680872671953272}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_RootOrder
@@ -3088,10 +3188,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 19.578
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_Name
       value: Bush (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767400413853537203, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3112,6 +3237,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 265680872671953272}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_RootOrder
@@ -3167,10 +3297,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -35.911
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_Name
       value: Bush (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767400413853537203, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3191,6 +3346,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 265680872671953272}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_RootOrder
@@ -3246,10 +3406,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -20.451
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_Name
       value: Bush (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767400413853537203, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3270,6 +3455,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 265680872671953272}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_RootOrder
@@ -3340,10 +3530,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 22.15
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
         type: 3}
       propertyPath: m_Name
       value: Bush (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767400413853537203, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: 087817a5c49e1d045984ffd21f105047,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

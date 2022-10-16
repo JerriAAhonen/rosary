@@ -61,7 +61,9 @@ public class Player : MonoBehaviour
 			return;
 		
 		Debug.Log("Player died!");
-		PlayerPrefs.SetInt(HighScoreKey, net.Score);
+		var previousHS = PlayerPrefs.GetInt(HighScoreKey, 0);
+		if (net.Score > previousHS)
+			PlayerPrefs.SetInt(HighScoreKey, net.Score);
 		AudioManager.I.PlayOnce(deathSFX);
 		WorldManager.I.OnGameOver();
 	}
